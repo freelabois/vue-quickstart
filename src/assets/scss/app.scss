@@ -1,0 +1,36 @@
+@import "variables";
+
+
+html, body{
+    margin: 0;
+    padding: 0;
+    background: var(--backgroundColor);
+  }
+
+
+  body::-webkit-scrollbar {
+    width: 0;
+    height: 0
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+
+
+  .flex-align-center{
+    display: flex;
+    align-items: center;
+  }
+  
+  .flex-justify-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .flex-justify-end{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
