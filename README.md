@@ -1,7 +1,7 @@
 # Vue Quickstart
 
 
-##O que tem de bom?
+### O que tem de bom?
 
 - Vuetify 
 - Scss já configurado com variaveis
