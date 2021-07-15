@@ -8,24 +8,24 @@
       <component
           :maskMoney="field.maskMoney"
           v-for="(field, index) in fields"
-          :title="field.titulo"
+          :title="field.title"
           :maskFormat="field.maskFormat"
-          v-if="field.reactive_show ? reatividade(pesData, field.reactive_params) : !field.hideInput"
+          v-show="field.visible"
           :disabled="disabled"
           :valueField="field.valueField"
-          :ref="field.identificacao_interna"
+          :ref="field.internalKey"
           :keyValue="field.keyValue"
           :items="field.items"
           :rules="isRule(field) ? [ (v) => !!v || field.rules || 'Preencha o campo'] : field.validation"
-          :label="field.titulo"
-          :cols="isMobile ? '12' : field.colunas"
-          :key="field.componente+index"
-          :is="field.componente"
+          :label="field.label"
+          :cols="isMobile ? '12' : field.column"
+          :key="field.component+index"
+          :is="field.component"
           :keyName="field.keyName"
           :reqText="field.rules"
-          :required="field.requerido"
+          :required="field.required"
           :module="field.modulo"
-          :type="field.tipo"
+          :type="field.type"
           :data="inputsValues"
           :reactiveField="field.reactiveField"
           :hint="field.hint"
@@ -44,35 +44,12 @@
 <script>
 const {isNil} = require('lodash');
 import Vue from 'vue';
-import MaskTextField from "./Inputs/MaskTextField";
-import TextField from "./Inputs/TextField";
-import SelectField from "./Selects/SelectField";
-import DefaultDocumentInput from "./DefaultComponents/DefaultDocumentInput";
-import SelectAutoComplete from "./Selects/SelectAutoComplete";
-import CnsComponent from "./DefaultComponents/CnsComponent";
-import DataTextField from "./Inputs/DataTextField";
-import ParentTextField from "./Inputs/ParentTextField";
-import DefaultSwitch from "./Inputs/DefaultSwitch";
-import Validation from "../mixins/Validation";
-import Helpers from "../mixins/Helpers";
-import DefaultButton from "./DefaultComponents/DefaultButton";
-import CampoDinamico from "../mixins/CampoDinamico";
 
 export default {
   name: 'FormFields',
   components: {
-    DefaultButton,
-    TextField,
-    DataTextField,
-    CnsComponent,
-    MaskTextField,
-    SelectField,
-    ParentTextField,
-    DefaultDocumentInput,
-    SelectAutoComplete,
-    DefaultSwitch
   },
-  mixins: [Validation, Helpers, CampoDinamico],
+  mixins: [],
   props: {
     fields: {
       type: Array,
@@ -102,9 +79,6 @@ export default {
     this.fieldValues === null ? this.fieldValues = {} : '';
   },
   methods: {
-    updateValue(fieldName, event, reactiveFunction) {
-
-    },
     removeFile(event) {
       this.fieldValues.documentos = this.fieldValues.documentos.filter((item, key) => key !== this.fieldValues.documentos.indexOf(event));
       this.$emit('update:values', this.fieldValues);

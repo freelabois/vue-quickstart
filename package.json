@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "lodash": "^4.17.21",
     "moment": "^2.26.0",
     "swagger-axios-codegen": "^0.12.4",
     "v-mask": "^2.2.1",
