@@ -43,11 +43,13 @@
 
 <script>
 const {isNil} = require('lodash');
+import TextField from '../inputs/TextField'
 import Vue from 'vue';
 
 export default {
   name: 'FormFields',
   components: {
+    TextField,
   },
   mixins: [],
   props: {
@@ -55,7 +57,10 @@ export default {
       type: Array,
       required: true,
     },
-    disabled: false,
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
     validate: {},
     pesData: {},
     codRef: {},
@@ -103,16 +108,9 @@ export default {
     initalValues(value) {
       this.inputsValues = value;
     },
-    inputsValues(value) {
-      //   console.log(this.$refs);
-      // this.fields.forEach(field => {
-      //   // this.$refs[field.identificacao_interna].valueField = value[field.identificacao_interna]
-      // })
-    },
     fields() {
       this.fields.forEach(field => {
-        //ternario preenchimento campo dinamico
-        Vue.set(this.inputValues, field.identificacao_interna, '');
+        Vue.set(this.inputValues, field.component, '');
       })
     },
     validate() {

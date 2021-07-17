@@ -1,32 +1,6 @@
 $primaryColor: #002e37 !important;
-$secondaryColor: #182228 !important;
-$dangerColor: #c1345e !important;
-$warningColor: #e3ac2f !important;
-$successColor: #49a294 !important;
-$backgroundColorModal: #f8f8f8 !important;
-//$backgroundColor: #e9eeef !important;
-$backgroundColor: #18222810 !important;
-$blackColor: #182228 !important;
-$greenColor: #0e5155 !important;
-$grayColor: #707473 !important;
-$lightGrayColor: #adb8b4 !important;
-$opacityGrayColor: #efefef !important;
-$fieldBox: #002e3720 !important;
-$grayContrast: #70747335 !important;
+
 
 :root {
   --primaryColor: #{$primaryColor};
-  --fieldBox: #{$fieldBox};
-  --secondaryColor: #{$secondaryColor};
-  --dangerColor: #{$dangerColor};
-  --warningColor: #{$warningColor};
-  --successColor: #{$successColor};
-  --backgroundColor: #{$backgroundColor};
-  --backgroundColorModal: #{$backgroundColorModal};
-  --blackColor: #{$blackColor};
-  --greenColor: #{$greenColor};
-  --grayColor: #{$grayColor};
-  --lightGrayColor: #{$lightGrayColor};
-  --opacityGrayColor: #{$opacityGrayColor};
-  --grayContrast: #{$grayContrast};
 }
