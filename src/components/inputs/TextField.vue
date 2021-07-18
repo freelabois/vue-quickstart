@@ -1,8 +1,5 @@
 <template>
   <v-col :cols="cols">
-    <div class="label-box">
-      <label :class="{'darkStyle': darkStyle}">{{ label }}</label>
-    </div>
     <div class="container-input">
 <!--      v-model.lazy="maskMoney ? price : ''"-->
       <v-text-field
@@ -12,6 +9,7 @@
           :disabled="disabled"
           :class="{'has-rules': rules, 'withButton': withButton, 'borderSuccess': borderSuccess, 'borderDanger': borderDanger, 'darkStyle' : darkStyle}"
           :rules="rules ? rules : []"
+          :label="label"
           :prepend-inner-icon="prependInnerIcon"
           v-model="text"
           :type="type"

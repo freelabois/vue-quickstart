@@ -3,30 +3,30 @@
     <h1>
       Hello dude, be quick ⚡
     </h1>
-    <FormFields
-      :fields="[
-          {
-          variableName: 'nomeTextField',
-          field: 'TextField',
-          type: 'text',
-          label: 'Nome INCOMPLETO',
-          cols: 8,
-          valueField: 'batata',
-          rules: [
-            value => !!value || 'O campo Nome é obrigatório',
-          ]
-        },
-      ]"
-    />
+<!--    <FormFields-->
+<!--      :fields="[-->
+<!--          {-->
+<!--          variableName: 'nomeTextField',-->
+<!--          component: 'TextField',-->
+<!--          type: 'text',-->
+<!--          label: 'Nome INCOMPLETO',-->
+<!--          cols: 8,-->
+<!--          valueField: 'batata',-->
+<!--          rules: [-->
+<!--            value => !!value || 'O campo Nome é obrigatório',-->
+<!--          ]-->
+<!--        },-->
+<!--      ]"-->
+<!--    />-->
   </div>
 </template>
 
 <script>
 
-import FormFields from "../components/FieldsComponents/FormFields";
+// import FormFields from "../components/FieldsComponents/FormFields";
 export default {
   name: "BeQuick",
-  components: {FormFields},
+  components: {},
 };
 </script>
 

@@ -16,9 +16,9 @@
           :ref="field.internalKey"
           :keyValue="field.keyValue"
           :items="field.items"
-          :rules="isRule(field) ? [ (v) => !!v || field.rules || 'Preencha o campo'] : field.validation"
+          :rules="field.rules"
           :label="field.label"
-          :cols="isMobile ? '12' : field.column"
+          :cols="isMobile ? '12' : field.cols"
           :key="field.component+index"
           :is="field.component"
           :keyName="field.keyName"
@@ -26,25 +26,24 @@
           :required="field.required"
           :module="field.modulo"
           :type="field.type"
-          :data="inputsValues"
+          :data="inputsValue"
           :reactiveField="field.reactiveField"
           :hint="field.hint"
           :initialValue="field.initialValue"
           :multiple="true"
-          @onEnter="$set(inputsValues, field.identificacao_interna, $event), $emit('update:values', inputsValues)"
-          @update:value="$set(inputsValues, field.identificacao_interna, $event); $emit('update:values', inputsValues);"
+          @onEnter="$set(inputsValue, field.variableName, $event), $emit('update:values', inputsValue)"
+          @update:value="$set(inputsValue, field.variableName, $event); $emit('update:values', inputsValue);"
           @update:returnFile="addFile($event)"
           @update:removeFile="removeFile($event)"
-          @onBlur="field.onBlur? (field.onBlur($event), $emit('update:values', inputsValues)): null"
+          @onBlur="field.onBlur? (field.onBlur($event), $emit('update:values', inputsValue)): null"
       />
     </v-form>
   </v-col>
 </template>
 
 <script>
-const {isNil} = require('lodash');
 import TextField from '../inputs/TextField'
-import Vue from 'vue';
+// import Vue from 'vue';
 
 export default {
   name: 'FormFields',
@@ -70,7 +69,7 @@ export default {
   data() {
     let data = {
       windowWidth: window.innerWidth,
-      inputsValues: {},
+      inputsValue: {},
       formRef: false,
     }
     data = Object.assign({}, data, this.fields);
@@ -95,9 +94,6 @@ export default {
       this.fieldValues.documentos.push(event);
       this.$emit('update:values', this.fieldValues);
     },
-    isRule(element) {
-      return isNil(element.validation)
-    }
   },
   computed: {
     isMobile() {
@@ -106,12 +102,12 @@ export default {
   },
   watch: {
     initalValues(value) {
-      this.inputsValues = value;
+      this.inputsValue = value;
     },
     fields() {
-      this.fields.forEach(field => {
-        Vue.set(this.inputValues, field.component, '');
-      })
+      // this.fields.forEach(field => {
+      //   Vue.set(this.inputValues, field.component, '');
+      // })
     },
     validate() {
       this.$emit('save', this.$refs[this.formRef].validate());
